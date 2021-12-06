@@ -39,7 +39,7 @@ Designed for programming -> deploying and running on EC2 -> analyzing the result
 - 3 min overhead for the first task in a session (for starting a new instance).
 - 2 min overhead for every subsequent task in a session (for restarting the instance).
 
-Note: the overhead varies slightly based on the instance size. The more powerful the instance type, the less the overhead. But you probably won't get lower than 1 minute for the overhead (I may be wrong).
+**Note:** the overhead varies slightly based on the instance size. The more powerful the instance type, the less the overhead. But you probably won't get lower than 1 minute for the overhead (I may be wrong).
 
 ### Costs:
 The EC2 cost depends on the instance type and how much it's used, obviously. The EBS cost shouldn't be more than $1.2 per month, assuming a 30gb SSD volume is used for 12 hours a day.
