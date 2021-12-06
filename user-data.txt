@@ -1,0 +1,23 @@
+<powershell>
+
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+function Unzip
+{
+    param([string]$zipfile, [string]$outpath)
+
+    [System.IO.Compression.ZipFile]::ExtractToDirectory($zipfile, $outpath)
+}
+
+rm -r -fo C:\Users\Administrator\Downloads\Parallel
+$ts=(Get-Date -Uformat %s)
+wget https://me.cmdr2.org/damla/tasks/Parallel.zip?ts=$ts -OutFile C:\Users\Administrator\Downloads\Parallel.zip
+
+Unzip C:\Users\Administrator\Downloads\Parallel.zip C:\Users\Administrator\Downloads\
+C:\Users\Administrator\Downloads\Parallel\Parallel.exe -logFile C:\Users\Administrator\Downloads\log.txt
+
+Write-S3Object -BucketName me.cmdr2.org -File C:\Users\Administrator\Downloads\log.txt -Key "damla/logs/$ts.txt" -CannedACLName public-read
+
+Stop-Computer -Force
+
+</powershell>
+<persist>true</persist>
