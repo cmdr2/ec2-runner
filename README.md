@@ -23,7 +23,7 @@ Designed for programming -> deploying and running on EC2 -> analyzing the result
 * `restart-server.sh` - restarts an exist EC2 Windows instance from the `.instance_id` file in the local directory, created by the `new-server.sh` script. This runs the task and uploads the log as usual.
 * `fetch-latest-logs.sh` - keeps polling until it can display a new log file (from the last run).
 
-* `kill-server.sh` - terminates the EC2 instance.
+* `kill-server.sh` - terminates the EC2 instance (and associated resources, like the EBS Volume).
 
 ## Usage strategy:
 1. `new-server.sh` - Start a new instance at the start of a new programming session.
