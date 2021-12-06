@@ -1,6 +1,10 @@
+# ec2-runner
+
 Remote runner code for a lambda-like experience, for running code on EC2 instances. Good for running GPU stuff without owning an expensive GPU.
 
-Note: this is really hardcoded for a specific project, but can be generalized.
+Designed for programming -> deploying and running on EC2 -> analyzing the results -> and returning to programming some more, with as little overhead in the programming feedback loop.
+
+**Note:** this is really hardcoded for a specific project, but can be generalized.
 
 ### Overhead for each task run:
 - 3 min overhead for the first task in a session (for starting a new instance)
@@ -23,7 +27,7 @@ The EBS cost per month shouldn't be more than Rs. 90 / month. The EC2 cost depen
 
 ## Usage strategy:
 1. `new-server.sh` - Start a new instance at the start of a new programming session
-2. `restart-server.sh` - Keep restarting the instance for tasks in that session: 
+2. `restart-server.sh` - Keep restarting the instance for tasks in that session
 3. `kill-server.sh` - Stop the instance at the end of that session
 
 ## Useful combinations:
@@ -32,4 +36,4 @@ The EBS cost per month shouldn't be more than Rs. 90 / month. The EC2 cost depen
 * `./restart-server.sh && ./fetch-latest-log.sh`
 
 ## A note about EBS cost:
-The extra EBS cost for restarting vs new is probably about Rs. 90 per month. This assumes the EBS volume is kept around for 12 hours every day. That's unlikely, since I'm probably unlikely to work on GPU stuff every single day in the month, throughout the day. The EBS volume needs to be kept around just for continuous sessions. If I go for lunch, and return, it's okay to kill the instance (and EBS volume) before lunch, and take the extra 1 min penalty for the first run of the next session.# ec2-runner
+The extra EBS cost for restarting vs new is probably about Rs. 90 per month. This assumes the EBS volume is kept around for 12 hours every day. That's unlikely, since I'm probably unlikely to work on GPU stuff every single day in the month, throughout the day. The EBS volume needs to be kept around just for continuous sessions. If I go for lunch, and return, it's okay to kill the instance (and EBS volume) before lunch, and take the extra 1 min penalty for the first run of the next session.
