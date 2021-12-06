@@ -13,7 +13,7 @@ Designed for programming -> deploying and running on EC2 -> analyzing the result
 Note: the overhead varies slightly. These measurements are for t2.large. For t2.micro, the overheads were about 30s-1min more.
 
 ### Costs:
-The EBS cost per month shouldn't be more than Rs. 90 / month. The EC2 cost depends on the instance type and how much it's used, obviously.
+The EC2 cost depends on the instance type and how much it's used, obviously. The EBS cost shouldn't be more than $1.2 per month, assuming a 30gb SSD volume is used.
 
 ## Commands:
 * `build.sh` - builds Parallel.exe from the Unity Project
@@ -36,4 +36,4 @@ The EBS cost per month shouldn't be more than Rs. 90 / month. The EC2 cost depen
 * `./restart-server.sh && ./fetch-latest-log.sh`
 
 ## A note about EBS cost:
-The extra EBS cost for restarting vs new is probably about Rs. 90 per month. This assumes the EBS volume is kept around for 12 hours every day. That's unlikely, since I'm probably unlikely to work on GPU stuff every single day in the month, throughout the day. The EBS volume needs to be kept around just for continuous sessions. If I go for lunch, and return, it's okay to kill the instance (and EBS volume) before lunch, and take the extra 1 min penalty for the first run of the next session.
+The extra EBS cost for restarting vs new is probably about $1.2 per month. This assumes a 30gb EBS volume is kept around for 12 hours every day. That's unlikely, since I'm probably unlikely to work on GPU stuff every single day in the month, throughout the day. The EBS volume just needs to be kept around for continuous sessions. If I go for lunch, and return, it's okay to kill the instance (and the EBS volume) before lunch, and take the extra 1 min penalty for the first task run of the next session (for recreating the instance and EBS volume).
