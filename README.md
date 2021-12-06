@@ -50,4 +50,6 @@ The EC2 cost depends on the instance type and how much it's used, obviously. The
 3. My demo project is checked-in here, and gets built and deployed, instead of taking a user-defined binary/ZIP-file to deploy and run.
 
 ## A note about EBS cost:
-The extra EBS cost for restarting vs new is probably about $1.2 per month. This assumes a 30gb EBS volume is kept around for 12 hours every day. That's unlikely, since I'm probably unlikely to work on GPU stuff every single day in the month, throughout the day. The EBS volume just needs to be kept around for continuous sessions. If I go for lunch, and return, it's okay to kill the instance (and the EBS volume) before lunch, and take the extra 1 min penalty for the first task run of the next session (for recreating the instance and EBS volume).
+The extra EBS cost for restarting vs new is probably about $1.2 per month. This assumes a 30gb EBS volume is kept around for 12 hours every day. That many hours of usage is unlikely, since I'm not likely to work on GPU stuff every single day in the month, throughout the day. But if I do, that's the price (which isn't much TBH).
+
+In practice, the EBS volume just needs to be kept around for the duration of each programming session. If I go for lunch, and return, it's okay to kill the instance (and the EBS volume) before lunch, and take the extra 1 min penalty for the first task run of the next session (for recreating the instance and EBS volume).
