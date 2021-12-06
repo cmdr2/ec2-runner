@@ -7,13 +7,13 @@ Why would you even do that? To be able to run your 2 - 30 minute workloads on hi
 ## What does this do?
 It takes an executable program that you've written, starts a temporary EC2 instance (in your AWS account), runs your program on it, uploads the logs to your S3 bucket, and shows you the log in your command line.
 
-The EC2 instance is run only for the duration of the program execution, so you can save costs while running pretty massive instance types (especially on high-end GPUs). EC2 bills per second of usage, and stopped instances don't get billed (but EBS volumes are billed, which is why you should terminate after a session [see 'Usage strategy']).
+The EC2 instance is run only for the duration of the program execution, so you can save costs while running pretty massive instance types (especially on high-end GPUs). EC2 bills per second of usage, and stopped instances don't get billed (but EBS volumes are billed, which is why you should terminate after a session [see [Usage strategy](#usage-strategy) below]).
 
-Suitable for when you're developing algorithms that you want to frequently test on high-end specifications (while you're programming), with run times between 2 - 30 minutes. Anything less or more, you should really think about whether the overhead time-per-invocation or costs are worth it for you.
+Suitable for when you're developing algorithms that you frequently want to test on high-end specifications (while you're programming), with run times between 2 - 30 minutes. Anything less or more, you should really think about whether the overhead time-per-invocation or costs are worth it for you.
 
 Designed for programming -> deploying and running on EC2 -> analyzing the results -> and returning to programming some more, with as little overhead in the programming feedback loop.
 
-**Note:** this is NOT even close to ready for others to use. It contains URLs and paths that are hardcoded for a specific project of mine, but can be generalized (feel free to edit the code). See the 'What needs to be done' section below for more info.
+**Note:** this is NOT even close to ready for others to use. It contains URLs and paths that are hardcoded for a specific project of mine, but can be generalized (feel free to edit the code). See the [What needs to be done](#what-needs-to-be-done-to-make-this-work-for-everyone) section below for more info.
 
 ## Commands:
 * `build.sh` - builds Parallel.exe from the Unity Project.
