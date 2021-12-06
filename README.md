@@ -1,6 +1,6 @@
 # ec2-runner
 
-Build your own toy AWS Lambda, but only for your use. Sort-of-serverless. With a 2-3 min startup time per invocation (gah!).
+Build your own simple AWS Lambda, but only for your use. Sort-of-serverless. With a 2-3 min startup time per invocation (gah!).
 
 Why would you even do that? To be able to run your 2 - 30 minute workloads on high-end computers without owning them. Especially GPUs, since AWS Lambda doesn't provide GPUs (and they're [really expensive right now](https://en.wikipedia.org/wiki/2020–2021_global_chip_shortage) to purchase).
 
