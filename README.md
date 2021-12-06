@@ -17,9 +17,9 @@ Designed for programming -> deploying and running on EC2 -> analyzing the result
 
 ## Commands:
 * `build.sh` - builds Parallel.exe from the Unity Project.
-* `upload.sh` - uploads the build zip to S3.
+* `upload.sh` - uploads the task zip to S3.
 
-* `new-server.sh` - creates an EC2 Windows instance from a launch template in the AWS Console. A user-data script executes the task, uploads the run log to S3, and stops the instance.
+* `new-server.sh` - creates an EC2 Windows instance from a launch template in the AWS Console. A user-data script fetches the task zip, executes the task, uploads the run log to S3, and stops the instance.
 * `restart-server.sh` - restarts an exist EC2 Windows instance from the `.instance_id` file in the local directory, created by the `new-server.sh` script. This runs the task and uploads the log as usual.
 * `fetch-latest-logs.sh` - keeps polling until it can display a new log file (from the last run).
 
