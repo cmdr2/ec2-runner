@@ -48,6 +48,7 @@ The EC2 cost depends on the instance type and how much it's used, obviously. The
 1. The EC2 template I've used, and the IAM policy/role (for writing to S3) haven't been described here. CloudFormation might be a good idea.
 2. My bucket and instance template Ids are hardcoded in the scripts.
 3. My demo project is checked-in here, and gets built and deployed, instead of taking a user-defined binary/ZIP-file to deploy and run.
+4. The Powershell script in the user-data file, and the launch template assumes Windows. A similar user-data script for Linux, and changing the AMI in the launch template would result in Linux support.
 
 ## A note about EBS cost:
 The extra EBS cost for restarting vs new is probably about $1.2 per month. This assumes a 30gb EBS volume is kept around for 12 hours every day. That many hours of usage is unlikely, since I'm not likely to work on GPU stuff every single day in the month, throughout the day. But if I do, that's the price (which isn't much TBH).
